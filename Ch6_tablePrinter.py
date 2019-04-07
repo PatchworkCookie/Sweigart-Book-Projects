@@ -36,7 +36,8 @@ def printTable(table):
 	for row in range(len(table[0])):
 		for column in range(len(table)):
 			logging.debug('Item: %s, Column: %s, Row: %s, Column space: %s' % (str(table[column][row]), str(column), str(row), str(longest[column])))
-			print(str(table[column][row]).rjust(longest[column]) + " ", end="")
+			space = "" if column + 1 == len(table)  else " " #space between columns as necessary
+			print(str(table[column][row]).rjust(longest[column]) + space , end="")
 		print() #Go to the next row
 	pass
 
@@ -44,10 +45,11 @@ class TestPrintTable():
 	tableData = [['apples', 'oranges', 'cherries', 'banana'],
 				['Alice', 'Bob', 'Carol', 'David'],
 				['dogs', 'cats', 'moose', 'goose']]
-	expected = '''	  apples Alice  dogs
+	expected = '''  apples Alice  dogs
  oranges   Bob  cats
 cherries Carol moose
-  banana David goose'''
+  banana David goose
+'''
   
 	def test_printTable(self, capsys):
 		#Redirect stdout
