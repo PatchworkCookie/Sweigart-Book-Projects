@@ -19,10 +19,25 @@ import logging, pytest
 import io, sys
 
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
-#logging.disable(logging.INFO)
+logging.disable(logging.INFO)
 
 def printTable(table):
 	logging.debug('Start of printTable(%s)' % (str(table)))
+	#Get length of longest word in each column
+	longest = [0] * len(table)
+	for column in range(len(table)):
+		for row in range(len(table)):
+			logging.debug('The longest for this column is: %s, %s has length %s' % (str(longest[column]), str(table[column][row]), str(len(table[column][row]))))
+			if longest[column] < len(table[column][row]) : longest[column] = len(table[column][row])
+	logging.debug('Lengths for columns are: %s' % (str(longest)))
+			
+	
+	#Print contents of the table
+	for row in range(len(table[0])):
+		for column in range(len(table)):
+			logging.debug('Item: %s, Column: %s, Row: %s, Column space: %s' % (str(table[column][row]), str(column), str(row), str(longest[column])))
+			print(str(table[column][row]).rjust(longest[column]) + " ", end="")
+		print() #Go to the next row
 	pass
 
 class TestPrintTable():
@@ -34,14 +49,21 @@ class TestPrintTable():
 cherries Carol moose
   banana David goose'''
   
-	def test_printTable(self):
+	def test_printTable(self, capsys):
 		#Redirect stdout
-		old_stdout = sys.stdout
-		sys.stdout = mock_stdout = io.StringIO()
+		# old_stdout = sys.stdout
+		# sys.stdout = mock_stdout = io.StringIO()
 		
 		printTable(self.tableData)
 		
 		#Restore stdout
-		sys.stdout = old_stdout
-		
-		assert mock_stdout.getvalue() == self.expected
+		# sys.stdout = old_stdout
+		stdout_capture = capsys.readouterr()
+		assert stdout_capture[0] == self.expected
+		# assert mock_stdout.getvalue() == self.expected
+
+if  __name__ =='__main__':
+	tableData = [['apples', 'oranges', 'cherries', 'banana'],
+				['Alice', 'Bob', 'Carol', 'David'],
+				['dogs', 'cats', 'moose', 'goose']]
+	printTable(tableData)
