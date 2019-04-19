@@ -24,3 +24,43 @@ truck was unaffected by these events.
 
 The results should be printed to the screen and saved to a new text file.
 '''
+
+import logging, pytest
+	
+def promptForInputFile():
+	filepath = ''
+	pass
+
+def openInput(filePath):
+	#Return opened file
+	pass
+	
+def createWordList(filedata):
+	wordList = []
+	pass
+	
+def promptForWords(list):
+	responses = []
+	pass
+	
+def generateText(filedata, list):
+	text = ''
+	pass
+	
+def displayText(text):
+	pass
+
+def promtForOutputFile():
+	filePath = ''
+	pass
+	
+def saveText(text, filepath):
+	pass
+	
+class Test_():
+	def test_():
+		pass
+	pass
+	
+if __name__ == '__main__':
+	pass # luv you too, bb : >
