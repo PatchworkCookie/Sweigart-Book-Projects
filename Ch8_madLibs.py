@@ -58,8 +58,36 @@ def saveText(text, filepath):
 	pass
 	
 class Test_():
-	def test_():
-		pass
+	@pytest.mark.parametrize('input, exOutput, exResult', [(['test','test'],'wrong','bad')])
+	def test_promptForInputFile(self, monkeypatch, capsys, input, exOutput, exResult):
+		monkeypatch.setattr('builtins.input', lambda x : input.pop(0)) # Return next item in input list
+		
+		result = promptForInputFile()
+		stdout_capture = capsys.readouterr()
+		
+		assert stdout_capture[0] == exOutput
+		assert result == exResult
+	
+	def test_openInput(self):
+		assert 0
+	
+	def test_createWordList(self):
+		assert 0
+	
+	def test_promptForWords(self):
+		assert 0
+	
+	def test_generateText(self):
+		assert 0
+	
+	def test_displayText(self):
+		assert 0
+	
+	def test_promtForOutputFile(self):
+		assert 0
+	
+	def test_saveText(self):
+		assert 0
 	pass
 	
 if __name__ == '__main__':
