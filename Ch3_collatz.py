@@ -19,7 +19,7 @@ Enter number:
 
 import logging
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
-#logging.disable(logging.DEBUG)
+logging.disable(logging.DEBUG)
 
 def collatz(number):
     logging.debug('Start of collatz(%s)' % (number))
