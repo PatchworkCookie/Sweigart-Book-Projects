@@ -73,21 +73,27 @@ class Test_():
 		
 		assert 0
 	
+	@pytest.mark.skip(reason="Test not written")
 	def test_createWordList(self):
 		assert 0
 	
+	@pytest.mark.skip(reason="Test not written")
 	def test_promptForWords(self):
 		assert 0
 	
+	@pytest.mark.skip(reason="Test not written")
 	def test_generateText(self):
 		assert 0
 	
+	@pytest.mark.skip(reason="Test not written")
 	def test_displayText(self):
 		assert 0
 	
+	@pytest.mark.skip(reason="Test not written")
 	def test_promtForOutputFile(self):
 		assert 0
 	
+	@pytest.mark.skip(reason="Test not written")
 	def test_saveText(self):
 		assert 0
 	pass
