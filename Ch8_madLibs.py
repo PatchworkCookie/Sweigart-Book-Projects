@@ -68,7 +68,9 @@ class Test_():
 		assert stdout_capture[0] == exOutput
 		assert result == exResult
 	
-	def test_openInput(self):
+	@pytest.mark.parametrize('input, exOutput, exResult', [(['test','test'],'wrong','bad')])
+	def test_openInput(self, monkeypatch, input, exOutput, exResult):
+		
 		assert 0
 	
 	def test_createWordList(self):

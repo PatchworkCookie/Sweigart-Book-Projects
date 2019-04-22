@@ -46,14 +46,13 @@ def collatzLoop(number):
     logging.debug('collatzLoop is returing: %s' % number)
     return number
 
-logging.debug('Start of program')
-number = input("Enter a number: ")
-try:
-    number = int(number)
-except ValueError:
-    print("You must enter an integer number to proceed")
-else:
-    collatzLoop(number)
-    logging.debug('End of program')
-    
-
+if __name__ == '__main__':
+	logging.debug('Start of program')
+	number = input("Enter a number: ")
+	try:
+		number = int(number)
+	except ValueError:
+		print("You must enter an integer number to proceed")
+	else:
+		collatzLoop(number)
+		logging.debug('End of program')
