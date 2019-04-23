@@ -57,7 +57,7 @@ def promtForOutputFile():
 def saveText(text, filepath):
 	pass
 	
-class Test_():
+class Test_madLibs():
 	@pytest.mark.parametrize('input, exOutput, exResult', [(['test','test'],'wrong','bad')])
 	def test_promptForInputFile(self, monkeypatch, capsys, input, exOutput, exResult):
 		monkeypatch.setattr('builtins.input', lambda x : input.pop(0)) # Return next item in input list
@@ -70,7 +70,9 @@ class Test_():
 	
 	@pytest.mark.parametrize('input, exOutput, exResult', [(['test','test'],'wrong','bad')])
 	def test_openInput(self, monkeypatch, input, exOutput, exResult):
-		
+		# TODO: Patch out the open() method
+		# TODO: assert open() has been called
+		# ...I don't know
 		assert 0
 	
 	@pytest.mark.skip(reason="Test not written")
