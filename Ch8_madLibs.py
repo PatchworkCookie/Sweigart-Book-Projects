@@ -75,9 +75,14 @@ class Test_madLibs():
 		# ...I don't know
 		assert 0
 	
-	@pytest.mark.skip(reason="Test not written")
-	def test_createWordList(self):
-		assert 0
+	#@pytest.mark.skip(reason="Test not written")
+	@pytest.mark.parametrize('input, exOutput', [('There was once a man named NOUN, he lived in the town of ADJECTIVE VERB. He was know as a ADVERB ADJECTIVE NOUN.',['NOUN', 'ADJECTIVE', 'VERB', 'ADVERB', 'ADJECTIVE', 'NOUN'])])
+	def test_createWordList(self, input, exOutput):
+		# Send in chunk of text and receive list of word types
+		
+		output = createWordList(input)
+		
+		assert output == exOutput
 	
 	@pytest.mark.skip(reason="Test not written")
 	def test_promptForWords(self):
