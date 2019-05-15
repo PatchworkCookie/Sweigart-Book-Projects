@@ -7,6 +7,8 @@ Write a function that uses regular expressions to make sure the password string 
 import logging, pytest
 import re
 
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
+
 def validateStrongPass(password):
 
 	minimumLength = re.compile(r'.{8,}') # Check if string is long enough, 8 at minimum
