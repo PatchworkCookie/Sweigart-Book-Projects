@@ -1,5 +1,5 @@
 import sys
-from chapterprojects import Ch3_collatz
+import Ch3_collatz
 
 
 def main(args=None):
@@ -7,7 +7,6 @@ def main(args=None):
         args = sys.argv[1:]
 
     print("This is the main routine.")
+    Ch3_collatz.main()
 
-
-if __name__ == "__main__":
-    main()
+main()
