@@ -1,5 +1,5 @@
 import sys
-from Sweigart-Book-Projects import Ch3_collatz
+from chapterprojects import Ch3_collatz
 
 
 def main(args=None):
