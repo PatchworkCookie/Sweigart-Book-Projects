@@ -1,12 +1,17 @@
 import sys
-import Ch3_collatz
+import Ch3_collatz 
+
+modules = {(3,0):Ch3_collatz}
 
 
 def main(args=None):
     if args is None:
         args = sys.argv[1:]
-
-    print("This is the main routine.")
-    Ch3_collatz.main()
+    mainLoop()
+    
+def mainLoop():
+    for key in modules.keys():
+        modules[key].main()
+        input("Press enter to continue...")
 
 main()
